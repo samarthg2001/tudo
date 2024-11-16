@@ -1,0 +1,49 @@
+.main-update {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .update-tudo {
+    background-color: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .update-tudo h1 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  
+  .update-tudo input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .update-btn {
+    display: flex;
+    gap: 10px;
+  }
+  
+
+  #close {
+    background-color: red;
+    color: white;
+    font-size: 1.5em;
+    padding: 10px;
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+  }
+ 

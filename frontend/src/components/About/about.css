@@ -1,0 +1,17 @@
+.about h1{
+    font-size: 3em;
+margin-top: 10vh ;
+margin-left: 10vh;
+width: 80%;
+border-bottom: 1px solid #ff0000;
+}
+
+.about-p{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin-top: 2vh ;
+    margin-left: 10vh;
+    font-family: sans-serif ;
+
+}

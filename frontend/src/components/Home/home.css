@@ -1,0 +1,33 @@
+.home{
+    margin-top: 20vh;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+
+justify-content: center;
+    align-items: center;
+
+
+}
+.home h1{
+    font-size: 5em;
+}
+.home p{
+    font-size: 2.5em;
+}
+
+.home-btn{
+    font-size: 2em;
+background-color: hsl(16, 100%, 50%);
+    border: none;
+cursor: pointer;
+padding: 10px 40px;
+border-radius: 50px;
+transition: background-color 0.2s ease-in-out,color 0.2s ease-in-out;
+
+}
+.home-btn:hover{
+    color: white;
+    background-color: hsl(16, 100%, 60%);
+    
+}
