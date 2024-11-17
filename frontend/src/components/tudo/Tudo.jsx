@@ -30,7 +30,7 @@ console.log(isLoggedIn);
     }
     try {
          const { title, body, _id } = updateData;
-         await axios.put(`http://localhost:8000/api/updateTask/${_id}`, {
+         await axios.put(`https://tudo-gules.vercel.app/?vercelToolbarCode=XZb3AFJLvOVE8lY/api/updateTask/${_id}`, {
         title: title,
         body: body,
       });
@@ -64,7 +64,7 @@ console.log(isLoggedIn);
               {
       if (isLoggedIn) {
         await axios
-          .post('http://localhost:8000/api/addTask', { title: input.title, body: input.body, id: sessoionId })
+          .post('https://tudo-gules.vercel.app/?vercelToolbarCode=XZb3AFJLvOVE8lY/api/addTask', { title: input.title, body: input.body, id: sessoionId })
           .then((res) => {
             console.log('this is addTask function',res);
           })
@@ -88,7 +88,7 @@ console.log(isLoggedIn);
   const del = async (cardid,nonuserID) => {
     if (sessoionId) {
       try {
-       await axios.delete(`http://localhost:8000/api/deleteTask/${cardid}`);
+       await axios.delete(`https://tudo-gules.vercel.app/?vercelToolbarCode=XZb3AFJLvOVE8lY/api/deleteTask/${cardid}`);
         toast.success('Task is deleted');
         setstate((prestate)=>!prestate)
 
@@ -132,7 +132,7 @@ console.log(isLoggedIn);
     const fetchData = async () => {
       try {
         if(isLoggedIn){
-        const res = await axios.get(`http://localhost:8000/api/fetchbyID/${sessoionId}`);
+        const res = await axios.get(`https://tudo-gules.vercel.app/?vercelToolbarCode=XZb3AFJLvOVE8lY/api/fetchbyID/${sessoionId}`);
         res.data ? setArray(res.data):[]
         // setArray((res.data)?res.data:[]);
           }
