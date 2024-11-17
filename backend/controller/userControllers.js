@@ -29,21 +29,11 @@ export const create = async (req,res)=>{
 }
 
 
-export const fetchbyemail=async(req,res)=>{
-        try {
-            const userData= await User.findOne(req.params.email)
-            if(!userData){
-                    return    res.status(400).json({message:"user does not exist"})
-            }
-            return res.status(200).json(userData)
-        } catch (error) {
-            res.status(500).json({message:"internal server error"})
-            console.log(error);
-        }
-}
+
 
 export const fetchbyId=async (req,res)=>{    
     try {
+        console.log("this is fetch by id method backend");
         const listId = req.params.id
     if(!mongoose.Types.ObjectId.isValid(listId)) 
     { return res.status(400).json({ message: 'Invalid list ID' }); }
@@ -73,19 +63,7 @@ export const fetchbyId=async (req,res)=>{
 }
 
 
-export const fetchAllData= async (req,res)=>{
-    try {
-    const allData= await User.find();
-    if(!allData){
-        res.status(404).json({message:"fetch all method got error "})
-    }        
-    res.status(200).json(allData)
 
-    } catch (error) {
-        console.log(error);
-        res.status(501).json({message:"internal server error"})
-    }
-}
 
 export const signIn= async(req,res)=>{
 
@@ -116,5 +94,33 @@ export const signIn= async(req,res)=>{
     } catch (error) {
         console.log(error);
         res.status(500).json({message:"internal server error"})
+    }
+}
+
+
+// API endpoints for fetching user data
+export const fetchbyemail=async(req,res)=>{
+    try {
+        const userData= await User.findOne(req.params.email)
+        if(!userData){
+                return    res.status(400).json({message:"user does not exist"})
+        }
+        return res.status(200).json(userData)
+    } catch (error) {
+        res.status(500).json({message:"internal server error"})
+        console.log(error);
+    }
+}
+export const fetchAllData= async (req,res)=>{
+    try {
+    const allData= await User.find();
+    if(!allData){
+        res.status(404).json({message:"fetch all method got error "})
+    }        
+    res.status(200).json(allData)
+
+    } catch (error) {
+        console.log(error);
+        res.status(501).json({message:"internal server error"})
     }
 }

@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 export const addTask = async (req, res) => {
   try {
     const { title, body, id } = req.body;
+    console.log(id);
     const userExists = await User.findById(id);
     console.log("addfunction 0");
     if (userExists) {

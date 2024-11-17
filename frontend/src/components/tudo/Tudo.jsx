@@ -18,40 +18,28 @@ const Tudo = () => {
   const dispath=useDispatch();
   console.log(dispath);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIN);
-    
+    const [activeIndex,setactiveIndex]=useState(null)
 console.log(isLoggedIn);
-
- 
+  const [state,setstate]=useState(false)
   const [input, setinput] = useState({ title: '', body: '' });
   const [Array, setArray] = useState([]);
   const [updateData, setupdateData] = useState({ title: '', body: '', _id: '' });
-
-  
-
   const updateTask = async () => {
     if(!sessoionId){
       toast.error("sign in to update")
     }
-
     try {
-      
-      console.log('updateTask: front end');
-      console.log(updateData);
-      const { title, body, _id } = updateData;
-
-       await axios.put(`http://localhost:8000/api/updateTask/${updateData_id}`, {
+         const { title, body, _id } = updateData;
+         await axios.put(`http://localhost:8000/api/updateTask/${_id}`, {
         title: title,
         body: body,
       });
-
       // Update the task in the state after successful update
       setArray((prevArray) =>
         prevArray.map((task) =>
           task._id === _id ? { ...task, title: updateData.title, body: updateData.body } : task
         )
       );
-    
-      
       closeUpdateBox()
     } catch (error) {
       console.log(error);
@@ -72,13 +60,9 @@ console.log(isLoggedIn);
       } else {
         toast.error('Please enter the content');
       }
-    } else 
-    console.log(sessoionId);
-    console.log(isLoggedIn);{
+    } else {
+              {
       if (isLoggedIn) {
-        console.log(id);
-        console.log(sessoionId);
-          console.log("addtask");
         await axios
           .post('http://localhost:8000/api/addTask', { title: input.title, body: input.body, id: sessoionId })
           .then((res) => {
@@ -87,32 +71,38 @@ console.log(isLoggedIn);
           .catch((err) => {
             console.log(err);
           });
-        setArray((preArray) => [...preArray, input]);
+        
+          setstate((prestate)=>!prestate)
         setinput({ title: '', body: '' });
-        toast.success('Your task is added', { autoClose: 2000 });
+        toast.success('Your task is added', { autoClose: 1000 });
       } else {
         setArray((preArray) => [...preArray, input]);
         setinput({ title: '', body: '' });
-        toast.success('Your task is added', { autoClose: 2000 });
-        toast.error('Your task is not saved! Please sign in.', { autoClose: 4000 });
+        toast.success('Your task is added', { autoClose: 1000 });
+        toast.error('Your task is not saved! Please sign in.', { autoClose: 1500 });
       }
     }
-  };
+  }
+};
 
   const del = async (cardid,nonuserID) => {
     if (sessoionId) {
       try {
        await axios.delete(`http://localhost:8000/api/deleteTask/${cardid}`);
         toast.success('Task is deleted');
+        setstate((prestate)=>!prestate)
+
       } catch (error) {
         console.log(error);
       }
     } else {
       // delete code for sign up user 
-      // const deltedTask = Array.filter((_, i) => i !==_id);
+      
       const deltedTask = Array.filter((_, i) => i !==nonuserID);
       toast.success('Task is deleted but not saved!');
       setArray(deltedTask);
+      setstate((prestate)=>!prestate)
+
     }
   };
 
@@ -139,21 +129,19 @@ console.log(isLoggedIn);
   };
  
   useEffect(() => {
-  
     const fetchData = async () => {
       try {
         if(isLoggedIn){
-        const res = await axios.get(`http://localhost:8000/api/fetchbyID/${id}`);
-        setArray((res.data)?res.data:[]);
-        console.log(res);}
+        const res = await axios.get(`http://localhost:8000/api/fetchbyID/${sessoionId}`);
+        res.data ? setArray(res.data):[]
+        // setArray((res.data)?res.data:[]);
+          }
       } catch (err) {
         console.error("Error fetching data:", err);
       }
     };
-  
     fetchData();
-  }, [updateData,sessoionId, isLoggedIn]); // Trigger on dependency changes
-
+  }, [ isLoggedIn,state,]); // Trigger on dependency changes
   return (
     <>
       <div className='tudo'>
@@ -186,15 +174,26 @@ console.log(isLoggedIn);
           </button>
         </div>
       </div>
-
+    <br />
       <div className='tudo-body'>
         <div className='container'>
-          {Array &&
-            Array.map((ele, index) => (
-              <div key={index} className='child'>
-                <TudoCard title={ele.title} body={ele.body} id={ele._id} delid={del} fn={displayUpdateBox} updateId={index} />
-              </div>
-            ))}
+          <br />
+        { Array && Array.length > 0 ? (
+      Array.map((ele, index) => (
+        <div key={index} className='child'>
+          <TudoCard 
+            title={ele.title} 
+            body={ele.body} 
+            id={ele._id} 
+            delid={del} 
+            fn={displayUpdateBox} 
+            updateId={index} 
+          />
+        </div>
+      ))
+    ) : (
+      <p>No data available. Add some items to see them here!</p>
+    )}
 
 
         </div>
