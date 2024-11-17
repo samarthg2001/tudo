@@ -11,7 +11,7 @@ import SignIn from './components/signIN/SignIn.jsx'
 import "./components/signIN/signIn.css"
 import "./components/signup/signUp.css"
 import Tudo from './components/tudo/Tudo.jsx'
-import "./components/tudo/Tudo.css"
+import "./components/tudo/tudo.css"
 import { useEffect } from 'react'
 import {  useDispatch } from 'react-redux';
 import { authActions } from './components/store/index.js';
