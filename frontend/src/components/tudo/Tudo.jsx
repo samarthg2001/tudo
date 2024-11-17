@@ -6,7 +6,7 @@ import TudoCard from './TudoCard';
 import { GrUpdate } from 'react-icons/gr';
 import { FaRegWindowClose } from 'react-icons/fa';
 import './TudoCard.css';
-import './UPdate.css';
+import './Update.css';
 import { useDispatch, useSelector } from 'react-redux';
 
 
