@@ -10,9 +10,22 @@ import cors from 'cors'
 const port=8000
 const app=express()
 app.use(express.json())
-app.use(cors(
-    origin:true
-))
+const allowedOrigins = ["http://localhost:5173" , "https://tudo-b2om.vercel.app"]
+//cors config
+const corsOption = {
+    origin:(origin , callback)=>{
+        if(!origin || allowedOrigins.includes(origin)){
+            callback(null ,true);
+        }
+        else{
+            console.log("blocked by cors: " , origin);
+            callback(new Error("not allowed by cors"));
+        }
+    },
+    // credentials:true,
+    // optionsSuccessStatus: 200 
+}
+app.use(cors(corsOption));
 Dbconnection()
 app.listen(port||process.env.PORT
     ,()=>{
