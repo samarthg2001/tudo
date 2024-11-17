@@ -10,7 +10,7 @@ import cors from 'cors'
 const port=8000
 const app=express()
 app.use(express.json())
-const allowedOrigins = ["http://localhost:5173" , "https://tudo-veoe.vercel.app/"]
+const allowedOrigins = ["http://localhost:5173" , "https://tudo-veoe.vercel.app"]
 //cors config
 const corsOption = {
     origin:(origin , callback)=>{
