@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import TudoCard from './TudoCard';
 import { GrUpdate } from 'react-icons/gr';
 import { FaRegWindowClose } from 'react-icons/fa';
-import './tudoCard.css';
+import './TudoCard.css';
 import './UPdate.css';
 import { useDispatch, useSelector } from 'react-redux';
 
