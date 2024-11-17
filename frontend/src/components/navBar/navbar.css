@@ -1,0 +1,65 @@
+.header {
+    background-color: lightblue;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+
+  .list {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .list a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .list li {
+    padding: 5px;
+  }
+  
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .sign-In-btn, .sign-out-btn, .log-out-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .sign-In-btn {
+    background-color: green;
+    color: white;
+  }
+  
+  .sign-out-btn {
+    background-color: blue;
+    color: white;
+  }
+  
+  .log-out-btn {
+    background-color: red;
+    color: white;
+  }
+  
+  .btn img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  

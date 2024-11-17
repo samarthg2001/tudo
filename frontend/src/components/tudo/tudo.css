@@ -1,0 +1,60 @@
+.tudo{
+    display: flex;
+    flex-direction: column;
+   text-align: center;
+   margin-top: 10vh;
+   position: relative;
+}
+.input-filed{
+    max-width: 100%;
+    padding: 10px;
+    margin: 20px;
+    width: 350px;
+    font-size: 2em;
+}
+#text-area{
+    display: none;
+    font-size: 1.8em;
+    max-width: 100%;
+    width: 350px;
+    height: 130px;   
+    
+}
+
+
+.tudo-btn button{
+    font-size: 1.5em;
+    padding: 10px;
+    height: 50px;
+    width: 100px;
+    color: wheat;
+    background-color: cadetblue;
+    cursor: pointer;
+}
+.tudo-btn button :hover{
+    font-size: 1.5em;
+    padding: 10px;
+    height: 50px;
+    width: 100px;
+    color: rgb(12, 168, 168);
+    background-color: rgb(27, 174, 179);
+    cursor: pointer;
+}
+
+
+.container{
+
+    display: flex;
+    flex-wrap: wrap;    
+    justify-content: center;
+   
+}
+.tudo-update{
+    position: absolute;
+    top: 100px;
+    left:0px;  
+    width: 100%;
+    height: 80vh;
+    display: none; 
+
+}
