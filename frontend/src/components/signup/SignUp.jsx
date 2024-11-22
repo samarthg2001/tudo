@@ -25,7 +25,11 @@ const submit = async (e) => {
   try {
     console.log(input);
     console.log(e);
+<<<<<<< HEAD
     const res = await axios.post("http://localhost:8000/api/register", input);
+=======
+    const res = await axios.post("https://tudo-gules.vercel.app/?vercelToolbarCode=XZb3AFJLvOVE8lY/api/register", input);
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
       setInput({
           email: "",
           name: "",

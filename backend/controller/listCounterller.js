@@ -58,7 +58,10 @@ export const updateTask= async (req,res) => {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
 export const deleteTask= async(req,res)=>{
   try {
     const {id}=req.params;
@@ -78,6 +81,7 @@ export const deleteTask= async(req,res)=>{
     console.log(error);
     return res.status(500).json({message:"internal server error"})
   }
+<<<<<<< HEAD
 }
 
 
@@ -108,3 +112,6 @@ export const taskProcess= async (req,res) => {
     return res.status(500).json({message:"internal server error"})
   }
 }
+=======
+}
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11

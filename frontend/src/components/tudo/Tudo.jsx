@@ -5,8 +5,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import TudoCard from './TudoCard';
 import { GrUpdate } from 'react-icons/gr';
 import { FaRegWindowClose } from 'react-icons/fa';
+<<<<<<< HEAD
 import './tudoCard.css';
 import './UPdate.css';
+=======
+import './TudoCard.css';
+import './Update.css';
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -16,12 +21,20 @@ let sessoionId = sessionStorage.getItem('id');
 
 const Tudo = () => {
   const dispath=useDispatch();
+<<<<<<< HEAD
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIN);
   // const [taskprocess,settaskprocess]=useState(false)
+=======
+  console.log(dispath);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIN);
+    const [activeIndex,setactiveIndex]=useState(null)
+console.log(isLoggedIn);
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
   const [state,setstate]=useState(false)
   const [input, setinput] = useState({ title: '', body: '' });
   const [Array, setArray] = useState([]);
   const [updateData, setupdateData] = useState({ title: '', body: '', _id: '' });
+<<<<<<< HEAD
   
   const completetask = async (cardid) => {
     // settaskprocess((prevestate)=>!prevestate)
@@ -52,13 +65,19 @@ const Tudo = () => {
   };
 
   
+=======
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
   const updateTask = async () => {
     if(!sessoionId){
       toast.error("sign in to update")
     }
     try {
          const { title, body, _id } = updateData;
+<<<<<<< HEAD
          await axios.put(`http://localhost:8000/api/updateTask/${_id}`, {
+=======
+         await axios.put(`https://tudo-gules.vercel.app/?vercelToolbarCode=XZb3AFJLvOVE8lY/api/updateTask/${_id}`, {
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
         title: title,
         body: body,
       });
@@ -92,7 +111,11 @@ const Tudo = () => {
               {
       if (isLoggedIn) {
         await axios
+<<<<<<< HEAD
           .post('http://localhost:8000/api/addTask', { title: input.title, body: input.body, id: sessoionId })
+=======
+          .post('https://tudo-gules.vercel.app/?vercelToolbarCode=XZb3AFJLvOVE8lY/api/addTask', { title: input.title, body: input.body, id: sessoionId })
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
           .then((res) => {
             console.log('this is addTask function',res);
           })
@@ -116,7 +139,11 @@ const Tudo = () => {
   const del = async (cardid,nonuserID) => {
     if (sessoionId) {
       try {
+<<<<<<< HEAD
        await axios.delete(`http://localhost:8000/api/deleteTask/${cardid}`);
+=======
+       await axios.delete(`https://tudo-gules.vercel.app/?vercelToolbarCode=XZb3AFJLvOVE8lY/api/deleteTask/${cardid}`);
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
         toast.success('Task is deleted');
         setstate((prestate)=>!prestate)
 
@@ -160,7 +187,11 @@ const Tudo = () => {
     const fetchData = async () => {
       try {
         if(isLoggedIn){
+<<<<<<< HEAD
         const res = await axios.get(`http://localhost:8000/api/fetchbyID/${sessoionId}`);
+=======
+        const res = await axios.get(`https://tudo-gules.vercel.app/?vercelToolbarCode=XZb3AFJLvOVE8lY/api/fetchbyID/${sessoionId}`);
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
         res.data ? setArray(res.data):[]
         // setArray((res.data)?res.data:[]);
           }
@@ -170,8 +201,11 @@ const Tudo = () => {
     };
     fetchData();
   }, [ isLoggedIn,state,]); // Trigger on dependency changes
+<<<<<<< HEAD
 
   console.log(Array);
+=======
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
   return (
     <>
       <div className='tudo'>
@@ -218,8 +252,11 @@ const Tudo = () => {
             delid={del} 
             fn={displayUpdateBox} 
             updateId={index} 
+<<<<<<< HEAD
             taskcompletion={completetask}
             taskstate={ele.taskCompleted}
+=======
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
           />
         </div>
       ))

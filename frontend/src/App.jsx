@@ -11,7 +11,11 @@ import SignIn from './components/signIN/SignIn.jsx'
 import "./components/signIN/signIn.css"
 import "./components/signup/signUp.css"
 import Tudo from './components/tudo/Tudo.jsx'
+<<<<<<< HEAD
 import "./components/tudo/Tudo.css"
+=======
+import "./components/tudo/tudo.css"
+>>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
 import { useEffect } from 'react'
 import {  useDispatch } from 'react-redux';
 import { authActions } from './components/store/index.js';
