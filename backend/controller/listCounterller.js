@@ -58,6 +58,7 @@ export const updateTask= async (req,res) => {
   }
 }
 
+
 export const deleteTask= async(req,res)=>{
   try {
     const {id}=req.params;
@@ -72,6 +73,35 @@ export const deleteTask= async(req,res)=>{
     console.log(resonde);
 
     return res.status(200).json({message:"Task deleted"})
+
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({message:"internal server error"})
+  }
+}
+
+
+
+
+export const taskProcess= async (req,res) => {
+  try {
+    
+    const {taskCompleted}=req.body; 
+    const listId = req.params.id
+    console.log(listId);
+    // // console.log(id);
+    // const userExists= await User.findOne(listId)
+    // if(!userExists){
+    //   return res.status(404).json({message:"user not exist"})  
+    // }
+    console.log("complete task function");
+    const updatedTask =  await List.findByIdAndUpdate({_id:listId},{taskCompleted},{new:true})
+    
+    const  result= await updatedTask.save();
+    console.log(result);
+    console.log("Complete task function");
+      console.log(updateTask);
+    return res.status(200).json({message:"task completed"})
 
   } catch (error) {
     console.log(error);

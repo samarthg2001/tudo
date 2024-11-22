@@ -16,14 +16,42 @@ let sessoionId = sessionStorage.getItem('id');
 
 const Tudo = () => {
   const dispath=useDispatch();
-  console.log(dispath);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIN);
-    const [activeIndex,setactiveIndex]=useState(null)
-console.log(isLoggedIn);
+  // const [taskprocess,settaskprocess]=useState(false)
   const [state,setstate]=useState(false)
   const [input, setinput] = useState({ title: '', body: '' });
   const [Array, setArray] = useState([]);
   const [updateData, setupdateData] = useState({ title: '', body: '', _id: '' });
+  
+  const completetask = async (cardid) => {
+    // settaskprocess((prevestate)=>!prevestate)
+    if(!sessoionId){
+      toast.error("sign in to complete ")
+    }
+    try {
+         const { taskCompleted, _id } = Array[cardid];
+          const newtaskcompleted=!taskCompleted;
+         //  console.log(taskprocess,_id);
+        //  settaskprocess(taskCompleted)
+        //  console.log(taskprocess);
+        //  settaskprocess((prevestate)=>!prevestate)
+        //  console.log(taskprocess);
+         await axios.put(`http://localhost:8000/api/taskProcess/${_id}`, {
+        taskCompleted:newtaskcompleted,
+      });
+      // Update the task in the state after successful update
+      setArray((prevArray) =>
+        prevArray.map((task) =>
+          task._id === _id ? { ...task, taskCompleted: Array.taskprocess } : task
+        )
+      );
+      setstate((prestate)=>!prestate)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  
   const updateTask = async () => {
     if(!sessoionId){
       toast.error("sign in to update")
@@ -142,6 +170,8 @@ console.log(isLoggedIn);
     };
     fetchData();
   }, [ isLoggedIn,state,]); // Trigger on dependency changes
+
+  console.log(Array);
   return (
     <>
       <div className='tudo'>
@@ -188,6 +218,8 @@ console.log(isLoggedIn);
             delid={del} 
             fn={displayUpdateBox} 
             updateId={index} 
+            taskcompletion={completetask}
+            taskstate={ele.taskCompleted}
           />
         </div>
       ))

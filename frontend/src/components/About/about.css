@@ -1,17 +1,37 @@
+.about {
+    margin: 0;
+    gap: 10px;
+    font-size: 1em;
+    margin-left: 5vh;    }
 .about h1{
     font-size: 3em;
-margin-top: 10vh ;
-margin-left: 10vh;
+    margin-top: 5px;
 width: 80%;
 border-bottom: 1px solid #ff0000;
 }
-
-.about-p{
+.about p{
     width: 80%;
+    font-size: 1.2em;
     display: flex;
     align-items: center;
     margin-top: 2vh ;
-    margin-left: 10vh;
     font-family: sans-serif ;
-
 }
+
+.about h3{
+    font-size: 1.5em;
+    margin: 10px;
+width: 80%;
+border-bottom: 1px solid #090909;
+}
+li{
+list-style: none;
+padding: 1px;
+font-size: 1.3em;
+}
+.language{
+    display: flex;
+    padding: 10px;
+    font-size: 1.3em;
+    gap: 10px;
+color: rgba(0, 0, 0, 0.901);}

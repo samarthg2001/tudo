@@ -5,9 +5,10 @@ import { AiFillCarryOut } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-
 const TudoCard = (props) => {
-  const [task,settask]=useState(false)
+  const taskstate=props.taskstate;
+ 
+  const [task,settask]=useState()
   const title1=props.title;
   let taskCompleted=""
   const body1=props.body
@@ -16,33 +17,32 @@ const TudoCard = (props) => {
  const fun=props.fn;
  const updatedId=props.updateId;
  const dispath=useDispatch();
- console.log(dispath);
- 
+  const updatetask=props.taskcompletion; 
+  // console.log(updatetask);     
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIN);
  const updateBoxdisplay=()=>{
       fun(updatedId)
-
  }
   const deletetask = () =>{
-    console.log(updatedId);
+    // console.log(updatedId);
     delid1(id1,updatedId)
-  
   }
-  if(!task){
-    taskCompleted="Completing"
-    
-   }
-   else{
-    taskCompleted="Completed"
-   }
+  if(!taskstate){taskCompleted="Completing"}
+  else{taskCompleted="Completed"}
   const completed=()=>{
-  settask((prestate)=>!prestate)
+    if(isLoggedIn){  
+      updatetask(updatedId)
+  }
+    else{
+      toast.display("Log in to complete")
+    }
 }
 
   const style1={
-    display:task?"none":""
+    display:taskstate?"none":""
     }
     const style2={
-      backgroundColor: task?"lightgray":""
+      backgroundColor: taskstate?"lightgray":""
 
     }
     const Completebuttonstyle1 ={
@@ -68,7 +68,7 @@ const TudoCard = (props) => {
     cursor: "pointer",
 }
 
-const btn= task? <AiFillCarryOut onClick={completed} />:<MdOutlineIncompleteCircle  onClick={completed}/>
+const btn= taskstate? <AiFillCarryOut onClick={completed} />:<MdOutlineIncompleteCircle  onClick={completed}/>
 
 
   return (
@@ -84,7 +84,7 @@ const btn= task? <AiFillCarryOut onClick={completed} />:<MdOutlineIncompleteCirc
       <div id='icons'>
       <button id='update' onClick={updateBoxdisplay} style={style1}> Update <GrUpdate className='update-icon'  onClick={updateBoxdisplay}/> </button>
       
-      <button id='complete' onClick={completed} style={task?Completebuttonstyle1:Completebuttonstyle2}> {taskCompleted} {btn} </button>
+      <button id='complete' onClick={completed} style={taskstate?Completebuttonstyle1:Completebuttonstyle2}> {taskCompleted} {btn} </button>
      <button id='delete' onClick={deletetask} style={style1}>Delete <MdDeleteForever  onClick={deletetask}  className='delete-icon'/></button>     
   
       

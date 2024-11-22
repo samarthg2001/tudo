@@ -7,10 +7,9 @@ import {authActions } from "../store/index.js"
 const Navbar = () => {
   const history=useNavigate();
     const dispath=useDispatch();
-    console.log(dispath);
+    
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIN);
       
-  console.log(isLoggedIn);
   const logout=()=>{
     sessionStorage.clear("id");
     dispath(authActions.logout());
