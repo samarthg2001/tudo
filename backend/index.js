@@ -9,9 +9,8 @@ import cors from 'cors'
 
 const port=8000
 const app=express()
+
 app.use(express.json())
-const allowedOrigins = ["http://localhost:5173" , "https://tudo-fvft.vercel.app"]
-//cors config
 const corsOption = {
     origin:(origin , callback)=>{
         if(!origin || allowedOrigins.includes(origin)){
@@ -26,6 +25,9 @@ const corsOption = {
     // optionsSuccessStatus: 200 
 }
 app.use(cors(corsOption));
+app.get('/ping', (req, res) => {
+    res.send('PONG');
+})
 Dbconnection()
 app.listen(port||process.env.PORT
     ,()=>{
@@ -34,9 +36,6 @@ app.listen(port||process.env.PORT
 })
 
 
-app.get('/easy',(req,res)=<{
-            
-        res.status(200).json({message:"hello world"});
-})
+
 
 app.use('/api',Router)
