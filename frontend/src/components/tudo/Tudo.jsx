@@ -36,7 +36,7 @@ const Tudo = () => {
         //  console.log(taskprocess);
         //  settaskprocess((prevestate)=>!prevestate)
         //  console.log(taskprocess);
-         await axios.put(`http://localhost:8000/api/taskProcess/${_id}`, {
+         await axios.put(`https://tudo-seven.vercel.app/api/taskProcess/${_id}`, {
         taskCompleted:newtaskcompleted,
       });
       // Update the task in the state after successful update
@@ -58,7 +58,7 @@ const Tudo = () => {
     }
     try {
          const { title, body, _id } = updateData;
-         await axios.put(`http://localhost:8000/api/updateTask/${_id}`, {
+         await axios.put(`https://tudo-seven.vercel.app/api/updateTask/${_id}`, {
         title: title,
         body: body,
       });
@@ -92,7 +92,7 @@ const Tudo = () => {
               {
       if (isLoggedIn) {
         await axios
-          .post('http://localhost:8000/api/addTask', { title: input.title, body: input.body, id: sessoionId })
+          .post('https://tudo-seven.vercel.app/api/addTask', { title: input.title, body: input.body, id: sessoionId })
           .then((res) => {
             console.log('this is addTask function',res);
           })
@@ -116,7 +116,7 @@ const Tudo = () => {
   const del = async (cardid,nonuserID) => {
     if (sessoionId) {
       try {
-       await axios.delete(`http://localhost:8000/api/deleteTask/${cardid}`);
+       await axios.delete(`https://tudo-seven.vercel.app/api/deleteTask/${cardid}`);
         toast.success('Task is deleted');
         setstate((prestate)=>!prestate)
 
@@ -160,7 +160,7 @@ const Tudo = () => {
     const fetchData = async () => {
       try {
         if(isLoggedIn){
-        const res = await axios.get(`http://localhost:8000/api/fetchbyID/${sessoionId}`);
+        const res = await axios.get(`https://tudo-seven.vercel.app/api/fetchbyID/${sessoionId}`);
         res.data ? setArray(res.data):[]
         // setArray((res.data)?res.data:[]);
           }
