@@ -34,6 +34,9 @@ app.listen(port||process.env.PORT
 })
 
 
-
+app.get('/easy',(req,res)=<{
+            
+        res.status(200).json({message:"hello world"});
+})
 
 app.use('/api',Router)
