@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 const About = () => {
   return (
     <>    
-<<<<<<< HEAD
   <div className='about'>
      <h1>About Me</h1> 
      <h2>Project: Tudo App</h2>
@@ -36,19 +35,6 @@ const About = () => {
                        <li><b>Save Tasks: </b> Save your tasks for future reference and  oraganization</li>
                        </ul>
                       </div>
-=======
-    
-    <div className='about'>
-      <h1>About Us</h1>
-       <div className='about-p'> <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum dolores natus voluptas quibusdam repudiandae cumque voluptate sint pariatur, similique odit beatae dolor recusandae, ratione fuga, deleniti veniam labore laudantium ad.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum dolores natus voluptas quibusdam repudiandae cumque voluptate sint pariatur, similique odit beatae dolor recusandae, ratione fuga, deleniti veniam labore laudantium ad.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum dolores natus voluptas quibusdam repudiandae cumque voluptate sint pariatur, similique odit beatae dolor recusandae, ratione fuga, deleniti veniam labore laudantium ad.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum dolores natus voluptas quibusdam repudiandae cumque voluptate sint pariatur, similique odit beatae dolor recusandae, ratione fuga, deleniti veniam labore laudantium ad.
-        </p></div>
-    </div>
-  
->>>>>>> 9ec1bb28dfce934c0c05c70907f384f83f8a1f11
     </>
 
   )

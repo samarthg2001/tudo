@@ -3,6 +3,7 @@ import { VscBook } from "react-icons/vsc";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import {authActions } from "../store/index.js"
+import P from "../../images/profile.png"
 
 const Navbar = () => {
   const history=useNavigate();
@@ -34,7 +35,9 @@ const Navbar = () => {
         
            {isLoggedIn?(<>
             <button className='log-out-btn' onClick={logout}> Log Out </button>
-             <img src="/images/profile.png" alt="photo not found" srcSet="" />
+             <img src={P} alt="photo not found" srcSet="" />
+            {console.log("./profile.png")}
+          
              <span>Welcome </span>
            </>)
            :(
